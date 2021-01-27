@@ -1,0 +1,60 @@
+<div class="container p-1" style="margin-top: 6rem; margin-bottom: 10rem;">
+  <div class="row card-group">
+    <div class="col-12 col-md-6 col-lg-4 col-xl-3 mt-2 align-content-center" *ngFor="let personaje of personajes">
+      <div class="card" style="width: auto; height: auto; border-radius: 10%;">
+        <img class="card-img-top" style="
+          width: 100%;
+          height: 100%;
+          max-height: 300px;
+          border-top-right-radius: 10%;
+          border-top-left-radius: 10%;" [src]="personaje.image" [alt]="personaje.name">
+        <div class="card-body">
+          <h5>{{personaje.name}}</h5>
+          <small style="font-style: italic;">
+            <li [ngClass]="(personaje.status == 'Alive') ? 'green' : 'red' "> {{personaje.status}} -
+              {{personaje.gender}}
+          </small>
+          <p class="card-text">
+            <span><b>Última ubicación conocida:</b></span><br>
+            <span>{{personaje.location.name}}</span>
+            <br>
+            <span> <b> Lugar de origen: </b></span><br>
+            <span>{{personaje.origin.name}}</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <app-paginator [pages]="pages" [activePage]="activePage" [totalPages]="totalPages"
+    (onChangePageEvent)="changePage($event)">
+  </app-paginator>
+
+</div>
+
+<style>
+  .green {
+    color: green;
+  }
+
+  img {
+    height: auto;
+    max-width: 100%;
+  }
+  .card img{
+    height: 100%;
+    width: 100%;
+    overflow-y: hidden;
+  }
+
+  .red {
+    color: red;
+  }
+
+  .card {
+    background-color: black;
+    border: none;
+    min-height: 500px;
+    color: #fff;
+  }
+</style>

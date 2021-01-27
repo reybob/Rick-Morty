@@ -1,0 +1,38 @@
+<!-- Page Content -->
+
+<div class="container" style="margin-top: 6rem">
+  <!-- Jumbotron Header -->
+  <header class="jumbotron my-4" style="background-color: transparent; color: #fff">
+    <h2 class="display-3" style="font-size: 4.5rem; font-weight: 600; text-align: center; line-height: 0.8;">Las
+      aventuras de Rick & Morty</h2>
+    <p class="lead"></p>
+  </header>
+
+  <!-- Page Features -->
+
+  <div class="row text-center">
+    <div *ngFor="let season of seasons" class="col-lg-3 col-md-6 mb-4">
+      <div class="card h-100">
+        <img class="card-img-top" src="{{season.image}}" width="330" height="350" alt="Temporada 1" />
+        <div class="card-body">
+          <h4 class="card-title">{{season.title}}</h4>
+          <p class="card-text">
+            {{season.description}}
+          </p>
+        </div>
+        <div class="card-footer">
+          <!-- <a [routerLink]="['/characters']" class="btn btn-primary">Ver más</a> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .card {
+    background-color: black;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+</style>

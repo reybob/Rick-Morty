@@ -1,0 +1,30 @@
+<div class="pagination">
+    <a (click)="changePage(1)">&laquo;</a>
+    <a id="id_{{page}}" *ngFor="let page of pages" [ngClass]="{'active': page == activePage}"
+        (click)="changePage(page)">{{page}}</a>
+    <a (click)="changePage(34)">&raquo;</a>
+    <strong>
+        Página {{activePage}} de {{totalPages}}
+    </strong>
+</div>
+<style>
+    .pagination {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: green;
+        padding: 1rem;
+    }
+
+    .active {
+        background-color: blue;
+    }
+
+    .pagination a {
+        font-size: 2rem;
+        float: left;
+        padding: 8px 16px;
+        display: inline;
+        text-decoration: none;
+    }
+</style>
